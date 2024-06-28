@@ -1,0 +1,66 @@
+programa
+{
+    inclua biblioteca Util
+
+    funcao inicio()
+    {
+        // Inicializando as listas com alguns elementos
+        lista<cadeia> lista1
+        lista1 <- ["Elemento1_1", "Elemento1_2", "Elemento1_3"]
+
+        lista<cadeia> lista2
+        lista2 <- ["Elemento2_1", "Elemento2_2", "Elemento2_3"]
+
+        enquanto (nao lista_vazia(lista1) e nao lista_vazia(lista2))
+        {
+            // Selecionando aleatoriamente um elemento da lista1
+            inteiro indiceAleatorio1 = Util::numero_aleatorio(0, comprimento(lista1) - 1)
+            cadeia elementoSelecionado1 = lista1[indiceAleatorio1]
+
+            // Selecionando aleatoriamente um elemento da lista2
+            inteiro indiceAleatorio2 = Util::numero_aleatorio(0, comprimento(lista2) - 1)
+            cadeia elementoSelecionado2 = lista2[indiceAleatorio2]
+
+            // Apresentando os elementos ao usuário
+            escreva("Escolha um elemento para manter:\n")
+            escreva("1: ", elementoSelecionado1, " (da Lista 1)\n")
+            escreva("2: ", elementoSelecionado2, " (da Lista 2)\n")
+
+            // Obtendo a escolha do usuário
+            inteiro escolhaUsuario
+            leia(escolhaUsuario)
+
+            // Removendo o elemento não escolhido
+            se (escolhaUsuario == 1)
+            {
+                remova(lista2, indiceAleatorio2)
+                escreva(elementoSelecionado2, " foi removido da Lista 2.\n")
+            }
+            senao se (escolhaUsuario == 2)
+            {
+                remova(lista1, indiceAleatorio1)
+                escreva(elementoSelecionado1, " foi removido da Lista 1.\n")
+            }
+            senao
+            {
+                escreva("Escolha inválida. Tente novamente.\n")
+                continue // Pula a iteração se a escolha for inválida
+            }
+
+            // Exibindo o estado atual das listas
+            escreva("Estado atual das listas:\n")
+            escreva("Lista 1: ", lista1, "\n")
+            escreva("Lista 2: ", lista2, "\n")
+        }
+
+        // Verificando qual lista está vazia
+        se (lista_vazia(lista1))
+        {
+            escreva("A Lista 1 está vazia. A Lista 2 vence!\n")
+        }
+        senao se (lista_vazia(lista2))
+        {
+            escreva("A Lista 2 está vazia. A Lista 1 vence!\n")
+        }
+    }
+}

@@ -1,0 +1,101 @@
+// Programa principal
+algoritmo "Seleção de Nomes"
+var
+    nomes : vetor[100] de cadeia // Lista de nomes
+    nomes2 : vetor[100] de cadeia // Segunda lista de nomes
+    tamanhoNomes, tamanhoNomes2 : inteiro // Tamanho das listas
+    sc : inteiro // Scanner simulado
+    randomIndex1, randomIndex2 : inteiro // Índices aleatórios
+    nomeAleatorio1, nomeAleatorio2 : cadeia // Nomes aleatórios
+    escolha : inteiro // Escolha do usuário
+
+// Função para obter o tamanho da lista de nomes
+funcao sizeNomes() : inteiro
+    retornar tamanhoNomes
+fimfuncao
+
+// Função para obter o tamanho da lista de nomes2
+funcao sizeNomes2() : inteiro
+    retornar tamanhoNomes2
+fimfuncao
+
+// Função para obter um nome da lista de nomes
+funcao getNomes(indice : inteiro) : cadeia
+    retornar nomes[indice]
+fimfuncao
+
+// Função para obter um nome da lista de nomes2
+funcao getNomes2(indice : inteiro) : cadeia
+    retornar nomes2[indice]
+fimfuncao
+
+// Função para remover um nome da lista de nomes
+funcao removeNome(indice : inteiro)
+    para i de indice ate tamanhoNomes - 2 faca
+        nomes[i] <- nomes[i + 1]
+    fimpara
+    tamanhoNomes <- tamanhoNomes - 1
+fimfuncao
+
+// Função para remover um nome da lista de nomes2
+funcao removeNome2(indice : inteiro)
+    para i de indice ate tamanhoNomes2 - 2 faca
+        nomes2[i] <- nomes2[i + 1]
+    fimpara
+    tamanhoNomes2 <- tamanhoNomes2 - 1
+fimfuncao
+
+inicio
+    // Inicializando listas de nomes
+    tamanhoNomes <- 5
+    tamanhoNomes2 <- 5
+    nomes[0] <- "Ana"
+    nomes[1] <- "Bruno"
+    nomes[2] <- "Carlos"
+    nomes[3] <- "Diana"
+    nomes[4] <- "Eduardo"
+    nomes2[0] <- "Fernanda"
+    nomes2[1] <- "Gustavo"
+    nomes2[2] <- "Helena"
+    nomes2[3] <- "Igor"
+    nomes2[4] <- "Julia"
+
+    // Loop até que uma das listas esteja vazia
+    enquanto tamanhoNomes > 0 e tamanhoNomes2 > 0 faca
+        // Obtendo um índice aleatório da lista nomes
+        randomIndex1 <- inteiro(aleatorio() * tamanhoNomes)
+        nomeAleatorio1 <- getNomes(randomIndex1)
+
+        // Obtendo um índice aleatório da lista nomes2
+        randomIndex2 <- inteiro(aleatorio() * tamanhoNomes2)
+        nomeAleatorio2 <- getNomes2(randomIndex2)
+
+        // Exibindo os nomes aleatórios
+        escreva("Nome 1: ", nomeAleatorio1, "\n")
+        escreva("Nome 2: ", nomeAleatorio2, "\n")
+
+        // Perguntando ao usuário qual nome ele quer
+        escreva("Você deve escolher entre os dois nomes na lista. Digite '1' para Nome 1 ou '2' para Nome 2:\n")
+        leia(escolha)
+
+        // Verificando a escolha do usuário e removendo o nome não escolhido
+        se escolha = 1 entao
+            escreva("Você escolheu: ", nomeAleatorio1, "\n")
+            removeNome2(randomIndex2)
+        senao
+            se escolha = 2 entao
+                escreva("Você escolheu: ", nomeAleatorio2, "\n")
+                removeNome(randomIndex1)
+            senao
+                escreva("Escolha inválida. Tente novamente.\n")
+                continue // Repetir o loop sem remover nada
+            fimse
+        fimse
+
+        // Verificando se ainda há nomes nas listas
+        se tamanhoNomes = 0 ou tamanhoNomes2 = 0 entao
+            escreva("Não há mais nomes disponíveis em uma das listas.\n")
+            pare
+        fimse
+    fimenquanto
+fimalgoritmo

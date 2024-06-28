@@ -1,0 +1,33 @@
+logica do programa
+
+
+No arquivo Nomes
+
+1 -> criar um arquivo chamado nomes, com a classe Nomes, e criar dois arraylist chamados nomes e nomes2, cada um com 2
+elementos cada
+
+2 -> adicionar nomes 2 nomes nas listas
+
+3 -> criar os metodos necessarios para as duas listas
+
+No arquivo principal da aplicação
+
+1 -> fazer as importaçoes de random, list e Scanner no programa principal e instancialos
+
+2 -> apos isso usamos um while loop para repetir o loop enquanto o numero de  elementos da lista for maior que zero
+
+3 -> agora nos obtemos o indice e depois o nome de forma aleatorioa na lista nomes e nomes2, usando a bilbioteca random
+
+4 -> apos exibir as perguntas que serão feitas ao usuario, os nomes aleatorios seão exibidos na tela
+
+5 -> agora iremos declarar uma variavel chamada escolha, apos isso usamos um bloco try-catch para lidar com as exceções
+
+6 -> agora iremos verificar a escolha do usuario, para que caso o elemento da lista nomes seja escolhido
+o elemento da lista nomes2 seja removido, e usamos um else if para o caso contrario, e por fim fechamos um else
+para caso nenhuma das escolhas seja feita
+
+7 -> por fim verificamos se ainda há elementos presentes na lista, para caso as duas listas estejam zeradas,
+finalizamos o programa com um "break"
+
+8 -> e por fim fechamos o Scanner com "sc.close()"
+

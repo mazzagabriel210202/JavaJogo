@@ -1,0 +1,34 @@
+[Início]
+   |
+   v
+[Apresentar duas listas ao usuário]
+   |
+   v
+[Perguntar ao usuário qual elemento ele quer (Lista 1 ou Lista 2)]
+   |
+   v
+[Escolha do usuário]
+   |
+   |--[Escolheu elemento de Lista 1?]--->(Sim)---|
+   |                                           |
+   |                                           v
+   |                                       [Remover elemento correspondente de Lista 2]
+   |                                           |
+   |                                           v
+   |                                        [Fim]
+   |
+   |--[Escolheu elemento de Lista 2?]--->(Sim)---|
+   |                                           |
+   |                                           v
+   |                                       [Remover elemento correspondente de Lista 1]
+   |                                           |
+   |                                           v
+   |                                        [Fim]
+   |
+   |--[Nenhuma das opções acima?]--->(Else)---|
+                                               |
+                                               v
+                                         [Mostrar "opção inválida"]
+                                               |
+                                               v
+                                             [Fim]
